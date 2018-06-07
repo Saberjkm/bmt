@@ -7,6 +7,8 @@ public class Test {
         System.out.println(testTree.addWord("hello  "));
         System.out.println(testTree.addWord("hell"));
         System.out.println(testTree.addWord("hell"));
-        System.out.println("Hello World");
+        for (String str : testTree.getWordsAsList()) {
+            System.out.println(str);
+        }
     }
 }

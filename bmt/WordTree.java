@@ -78,6 +78,17 @@ public class WordTree {
             }
             return null;
         }
+
+        // Turns out i have no clue how references work in java anymore
+        public ArrayList<String> gatherWords(String currentPrefix) {
+            ArrayList<String> returnList = new ArrayList<>();
+            if (this.representedCharacter != 0) { currentPrefix += this.representedCharacter; }
+            if (this.isEndOfWord) { returnList.add(new String(currentPrefix)); }
+            for (Node node : this.childNodes) {
+                returnList.addAll(node.gatherWords(currentPrefix));
+            }
+            return returnList;
+        }
     }
 
     private Node rootNode;
@@ -99,4 +110,7 @@ public class WordTree {
         return rootNode.addWord(word.trim().toLowerCase(), false); 
     }
     
+    public ArrayList<String> getWordsAsList() {
+        return rootNode.gatherWords("");
+    }
 }
