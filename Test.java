@@ -2,13 +2,15 @@ import bmt.*;
 
 public class Test {
     public static void main(String... args) {
-        WordTree testTree = new WordTree();
-        System.out.println(testTree.addWord("hello"));
-        System.out.println(testTree.addWord("hello  "));
-        System.out.println(testTree.addWord("hell"));
-        System.out.println(testTree.addWord("hell"));
-        for (String str : testTree.getWordsAsList()) {
-            System.out.println(str);
+        try {
+            BMT.initialise();
+            BMT.loadDictionary("dictionary");
+            for (String word : BMT.getWordsAsList()) {
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 }
